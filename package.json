@@ -22,8 +22,12 @@
     "emailjs-com": "^2.6.4",
     "inputmask": "^5.0.5",
     "jquery": "^3.5.1",
+    "lightgallery": "^2.1.2",
+    "lightgallery.js": "^1.4.0",
     "smoothscroll-polyfill": "^0.4.4",
-    "swiper": "^6.4.1"
+    "spotlight.js": "^0.7.72",
+    "swiper": "^6.4.1",
+    "viewerjs": "^1.9.2"
   },
   "devDependencies": {
     "@babel/core": "7.11.1",

@@ -20,6 +20,19 @@
     }
 
     .navbar {
+
+        &.sticky {
+            .navbar__header {
+                height: 40px;
+            }
+
+            .navbar__main {
+                .container {
+                    width: 1200px;
+                    margin: 0 auto;
+                }
+            }
+    }
         &__header {
             padding: 0;
             height: 40px;
@@ -183,6 +196,12 @@
                     }
                 }
             }
+        }
+    }
+
+    .action-buttons {
+        .call-btn {
+            display: none;
         }
     }
 }

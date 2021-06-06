@@ -1,9 +1,12 @@
 @import './colors.scss';
 @import './fonts';
+@import './loader.scss';
+@import './select';
 
 $navbar_header_height: 80px;
 $navbar_main_height: 40px;
 $navbar_mobile: 120px;
+$box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
 
 body {
     width: 100%;
@@ -86,6 +89,10 @@ h3 {
     outline: none;
 }
 
+.bad {
+    border: solid 1px red;
+}
+
 .textarea {
     padding: 15px;
     resize: none;
@@ -102,8 +109,6 @@ h3 {
     background: url('../img/decorator.png');
 }
 
-
-
 // TODO: NAVBAR
 .navbar {
     position: fixed;
@@ -114,14 +119,47 @@ h3 {
     width: 100%;
     z-index: 100;
 
+    .wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .flags-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
     &.sticky {
+        width: 100%;
         border-bottom: solid 1px rgba($color: #000000, $alpha: .1);
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
-        //box-shadow: $box-shadow;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        box-shadow: $box-shadow;
         background: $c_white;
+
+        .navbar__header {
+            height: 60px;
+
+            .navbar__contacts-wrapper {
+                .navbar__contact-item {
+                    .navbar__contact-content {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+
+        .navbar__main {
+            .container {
+                width: 100%;
+            }
+
+            display: flex;
+            line-height: 30px;
+            height: 40px;
+        }
     }
 
     &__header {
@@ -175,6 +213,7 @@ h3 {
     }
 
     &__main {
+        width: 100%;
         background-color: $c_white;
 
         .logo {
@@ -710,4 +749,126 @@ h3 {
             }
         }
     }
+}
+
+// TODO: MODALS
+.loader-modal, .success-modal {
+    overflow: hidden;
+    position: fixed;
+    left: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: rgba($color: #000000, $alpha: 0.7);
+    z-index: 100;
+
+    &.show {
+        display: flex;
+    }
+}
+
+.loader-modal {
+    .loader-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        @include loader;
+    }
+}
+
+.success-modal {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        height: 500px;
+        background: $c_white;
+        border-radius: 10px;
+
+        .icon {
+            width: 100px;
+            height: 100px;
+            background: url('../img/success-icon.svg') no-repeat;
+            background-size: contain;
+        }
+
+        .text-message {
+            margin-top: 30px;
+            padding: 0 15px;
+            text-align: center;
+        }
+    }
+}
+
+.action-buttons {
+    position: fixed;
+    right: 30px;
+    bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(200%);
+    z-index: 999;
+
+
+    &.show {
+        transform: translateY(0%);
+        // -webkit-animation: pulsate 4s ease-out;
+        // -webkit-animation-iteration-count: infinite; 
+    }
+
+    .action-btn {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        box-shadow: $box-shadow;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        -webkit-animation: pulsate 4s ease-out;
+        -webkit-animation-iteration-count: infinite; 
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .call-btn {
+        margin-bottom: 15px;
+        background: rgb(13, 155, 13) url('../img/phone.svg') no-repeat center center;
+        background-size: 60% 60%;
+    }
+
+    .telegram-btn {
+        background: url('../img/telegram.svg') no-repeat center center;
+        background-size: contain;
+    }
+
+    .viber-btn {
+        margin-top: 15px;
+        background: url('../img/viber.svg') no-repeat center center;
+        background-size: contain;
+    }
+}
+
+.viewer-canvas {
+    background: rgba($color: #000000, $alpha: .7);
 }
