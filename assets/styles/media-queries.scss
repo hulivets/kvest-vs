@@ -1,0 +1,188 @@
+@import './media';
+@import './colors.scss';
+
+@media screen and(min-width: 1200px) {
+    h1 {
+        font-size: 48px;
+    }
+
+    section {
+        padding: 100px 0;
+    }
+
+    .container {
+        width: 1200px;
+        margin: 0 auto;
+    }
+
+    .text-field {
+        width: 360px;
+    }
+
+    .navbar {
+        &__header {
+            padding: 0;
+            height: 40px;
+
+            .navbar__contacts-wrapper {
+                flex-direction: row;
+
+                .navbar__contact-item {
+                    width: 25%;
+                }
+            }
+        }
+
+        &__main {
+            display: flex;
+            align-items: center;
+            height: 60px;
+
+            .navbar-wrapper {
+                display: flex;
+
+                .nav-list-wrapper {
+                    .nav-list {
+                        position: relative;
+                        flex-direction: row;
+                        align-items: center;
+                        transform: translateX(0);
+
+                        &__link {
+                            margin-right: 20px;
+                            margin-bottom: 0;
+    
+                            a {
+                                font-size: 16px;
+                                font-weight: 900;
+                                transition: all 0.3s ease-out;
+
+                                &:hover {
+                                    color: $c_green_lite;
+                                    transition: all 0.3s ease-in;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .burger-menu {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .section-header {
+        margin-top: 100px;
+
+        .section-header__content {
+            width: 60%;
+        }
+
+        .section-header__subtitle {
+            margin-top: 30px;
+            margin-bottom: 35px;
+        }
+    }
+
+    .section-advantages {
+        .section-advantages__title-wrapper {
+            .section-advantages__subtitle {
+                width: 60%;
+                text-align: center;
+            }
+        }
+
+        .section-advantages__advantages-wrapper {
+            padding: 120px 0;
+
+            .section-advantages__list {
+                flex-direction: row;
+                justify-content: space-between;
+
+                .section-advantages__item {
+                    width: 20%;
+                }
+            }
+        }
+    }
+
+    .section-services {
+        display: flex;
+        flex-direction: column;
+
+        .section-services__main-products {
+            margin: 0 auto;
+            width: 64%;
+
+            .section-services__product-wrapper {
+                flex-direction: row;
+                justify-content: space-between;
+
+                .section-services__product {
+                    margin-top: 30px;
+                    margin-bottom: 80px;
+                    width: 346px;
+                }
+            }
+        }
+
+        .section-services__other-products {
+            .section-services__product-wrapper {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                .section-services__product {
+                    width: 360px;
+                }
+            }
+        }
+    }
+
+    .section-delivery {
+        &__list {
+            flex-direction: row;
+            justify-content: space-between;
+
+            .section-delivery__item {
+                width: 25%;
+            }
+        }
+    }
+
+    .footer {
+        padding: 100px 0;
+
+        .footer__row {
+            display: flex;
+            justify-content: space-between;
+
+            .footer__logo-column {
+                width: 30%;
+
+                .footer__description {
+                    margin-top: 55px;
+                }
+            }
+
+            .footer__title-column {
+                margin-top: 0;
+                width: 25%;
+
+                .footer__title-description-list {
+                    margin-top: 30px;
+
+                    .footer__description-row {
+                        justify-content: flex-start;
+
+                        .footer__row-title {
+                            width: 40%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

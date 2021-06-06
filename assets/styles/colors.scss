@@ -1,0 +1,22 @@
+$c_white: #FFFFFF;
+$c_green_lite: #7FA409;
+$c_green_dark: #282E14;
+$c_dark_navbar_text: #555555;
+$c_grey_title: #333333;
+$c_dark_section: #222222;
+$c_grey_text_footer: #999999;
+$c_grey: #F6F6F6;
+$c_text_main_content: #222222;
+$c_form_bg: #FBFBFB;
+$c_form_border: #E9E9E9;
+
+// $c_chart_protein_bg: rgba(153, 102, 255, 0.5);
+// $c_chart_protein_progress: rgba(153, 102, 255, 1);
+
+$c_chart_protein_bg: rgba($color: $c_green_lite, $alpha: 0.5);
+$c_chart_protein_progress: rgba($color: $c_green_lite, $alpha: 1.0);
+
+$c_chart_zhyry_bg: rgba(255, 205, 86, 0.5);
+$c_chart_zhyry_progress: rgba(255, 205, 86, 1);
+
+// rgba($color: #000000, $alpha: 1.0);
