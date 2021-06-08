@@ -128,6 +128,12 @@ h3 {
         .flags-wrapper {
             display: flex;
             flex-direction: column;
+
+            .togle-btn-label {
+                color: $c_grey;
+                text-align: center;
+                font-size: 14px;
+            }
         }
     }
 
@@ -461,8 +467,20 @@ h3 {
                 margin-top: 60px;
 
                 .section-services__product-image {
+                    overflow: hidden;
+
                     img {
                         width: 100%;
+                        transition: transform 0.2s ease-out;
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+
+                        img {
+                            transform: scale(1.03, 1.03);
+                            transition: transform 0.3s ease-in;
+                        }
                     }
                 }
                 .section-services__product-title {

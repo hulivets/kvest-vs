@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PVF9BCD');</script>
+    <!-- End Google Tag Manager -->
     <link rel="shortcut icon" href="./img/leaf.svg" type="image/x-icon">
     <title>КВЕСТ-ВС</title>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVF9BCD"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -30,21 +41,13 @@
                     </div>
 
                     <div class="flags-wrapper">
-                        <div class="custom-select-wrapper">
-                            <div class="custom-select">
-                                <div class="custom-select__trigger">
-                                    <span class="span-wrapper">
-                                        <div class="ua flag"></div>
-                                        <span>Укр</span>
-                                    </span>
-                                    <div class="arrow"></div>
-                                </div>
-                                <div class="custom-options">
-                                    <span class="custom-option selected ua flag" data-value="UA">Укр</span>
-                                    <span class="custom-option flag ru" data-value="RU">Рус</span>
-                                </div>
-                            </div>
+                        <div class="toogle">
+                            <input type="checkbox" class="input-toggle" id="toggle-lang" checked="true" />
+                            <label for="toggle-lang" class="toggle">
+                                <div class="slider"></div>
+                            </label>
                         </div>
+                        <div class="togle-btn-label lang" key="toggle-btn-label">Мова</div>
                     </div>
                 </div>
             </div>
@@ -60,7 +63,7 @@
                         <ul class="nav-list">
                             <li class="nav-list__link"><a class="lang" key="navlink-home" data-link="home">ГОЛОВНА</a></li>
                             <li class="nav-list__link"><a class="lang" key="navlink-services" data-link="services">ТОВАРИ</a></li>
-                            <li class="nav-list__link"><a class="lang" key="navlink-cost" data-link="form"">ЗАМОВИТИ</a></li>
+                            <li class="nav-list__link"><a class="lang" key="navlink-offer" data-link="form"">ЗАМОВИТИ</a></li>
                             <li class="nav-list__link"><a class="lang" key="navlink-delivery" data-link="delivery">ОПЛАТА ТА ДОСТАВКА</a></li>
                             <li class="nav-list__link"><a class="lang" key="navlink-contacts" data-link="contacts">КОНТАКТИ</a></li>
                         </ul>
@@ -80,7 +83,7 @@
         <div class="container">
             <div class="section-header__content">
                 <h1 class="section-header__title lang" key="header-title">Виробництво та реалізація кормових добавок</h1>
-                <div class="section-header__subtitle lang" key="header-subtitle">Макуха та шріт з соняшникового насіння та соєвих бобів найвищої якості. Для фермерів, ветеринарних магазинів, виробництв комбікормів.</div>
+                <div class="section-header__subtitle lang" key="header-subtitle">Макуха та шрот з соняшникового насіння та соєвих бобів найвищої якості. Для фермерів, ветеринарних магазинів, виробництв комбікормів.</div>
                 <button class="btn btn-header lang" key="btn-submit-application">Залишити заявку</button>
             </div>
         </div>
@@ -190,11 +193,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="section-services__other-products products">
-                <div class="section-services__product-wrapper">
                     <div class="section-services__product">
                         <div class="section-services__product-image">
                             <img id="shrot-podsolnukh" src="./img/shrot-podsolnukh.png" alt="">
@@ -204,7 +203,7 @@
                             <img src="./img/shrot-podsolnuh-1.jpg" alt="">
                             <img src="./img/shrot-podsolnuh-2.jpg" alt="">
                         </div>
-                        <h3 class="section-services__product-title lang" key="product-title-shrot-podsol">Соняшниковий шріт</h3>
+                        <h3 class="section-services__product-title lang" key="product-title-shrot-podsol">Соняшниковий шрот</h3>
                         <div class="section-services__product-description lang" key="product-description-shrot-podsol">
                             Пресоване знежирене насіння соняшника, що відрізняється високим вмістом білків.<br><br><br>
                         </div>
@@ -220,6 +219,38 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="section-services__other-products products">
+                <div class="section-services__product-wrapper">
+                    <div class="section-services__product">
+                        <!-- TODO: add images-->
+                        <div class="section-services__product-image">
+                            <img id="makukha-podsolnukh" src="./img/zmykh-podsonukh.png" alt="">
+                        </div>
+                        <div id="makukha-podsolnukh-gallery" style="display: none;">
+                            <img id="test" src="./img/makukha-podsolnuh-0.jpg" alt="">
+                            <img id="test" src="./img/makukha-podsolnuh-1.jpg" alt="">
+                            <img id="test" src="./img/makukha-podsolnuh-2.jpg" alt="">
+                        </div>
+                        <h3 class="section-services__product-title lang" key="product-title-podsol-makukha">Соняшникова макуха</h3>
+                        <div class="section-services__product-description lang" key="product-description-podsol-makukha">
+                            Виготовляється методом пресування з соняшникового насіння. Має високий вміст протеїну,
+                            жирів та мінеральних елементів — кальцію, заліза, фосфору, цинку. 
+                        </div>
+                        <h3 class="section-services__chart-title lang" key="product-chart-title">Показники</h3>
+                        <div class="section-services__chart">
+                            <div class="section-services__chart-wrapper protein">
+                                <div class="section-wrapper__chart-label lang" key="chart-label-podsol-makukha-protein2">Протеїн - &gt; 32%</div>
+                                <div class="section-services__chart-progress progress-protein" style="width: 32%"></div>
+                            </div>
+                            <div class="section-services__chart-wrapper zhyry">
+                                <div class="section-wrapper__chart-label lang" key="chart-label-podsol-makukha-zhyry2">Жири - &lt; 8%</div>
+                                <div class="section-services__chart-progress progress-zhyry" style="width: 8%"></div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="section-services__product">
                         <div class="section-services__product-image">
@@ -230,9 +261,9 @@
                             <img src="./img/shrot-soya-1.jpg" alt="">
                             <img src="./img/shrot-soya-2.jpg" alt="">
                         </div>
-                        <h3 class="section-services__product-title lang" key="product-title-shrot-soya">Соєвий шріт</h3>
+                        <h3 class="section-services__product-title lang" key="product-title-shrot-soya">Соєвий шрот</h3>
                         <div class="section-services__product-description lang" key="product-description-shrot-soya">
-                            Високобілковий продукт переробки соєвих бобів. Містить широкий набір мінеральних речовин, амінокислот та білків.
+                            Високобілковий продукт переробки соєвих бобів. Містить широкий набір мінеральних речовин, амінокислот та білків.<br><br>
                         </div>
                         <h3 class="section-services__chart-title lang" key="product-chart-title">Показники</h3>
                         <div class="section-services__chart">
@@ -258,7 +289,7 @@
                         </div>
                         <h3 class="section-services__product-title lang" key="product-title-obolonka">Соєва оболонка</h3>
                         <div class="section-services__product-description lang" key="product-description-obolonka">
-                            Кормовий гранульований продукт, що одержують при виробництві високопротеїнового соєвого шроту.<br><br>
+                            Кормовий гранульований продукт, що одержують при виробництві високопротеїнового соєвого шроту.<br><br><br>
                         </div>
                         <h3 class="section-services__chart-title lang" key="product-chart-title">Показники</h3>
                         <div class="section-services__chart">
@@ -289,10 +320,10 @@
             </div>
             <form novalidate class="section-form__form">
                 <div class="text-field-wrapper">
-                    <input type="text" placeholder="Iм'я" id="name" class="section-form__input text-field" type="text" required="required" autocomplete="off">
+                    <input type="text" placeholder="Iм'я" id="name" class="section-form__input text-field lang" key="input-name" type="text" required="required" autocomplete="off">
                     <input type="text" placeholder="Телефон" id="tel" class="section-form__input text-field" type="tel" required="required" pattern="phone" autocomplete="off">
                 </div>
-                <textarea class="section-form__input text-field textarea" id="comments" placeholder="Коментарi"></textarea>
+                <textarea class="section-form__input text-field textarea lang" id="comments" key="textarea-comments" placeholder="Коментарi"></textarea>
                 <button class="section-form__btn btn lang" type="submit" key="btn-submit-application">Залишити заявку</button>
             </form>
         </div>
@@ -310,7 +341,7 @@
                     <div class="section-delivery__item-icon podhotovka"></div>
                     <h3 class="section-delivery__item-title lang" key="section-delivery-item-title-podhotovka">Підготовка</h3>
                     <div class="section-delivery__item-description lang" key="section-delivery-description-podhotovka">
-                        Обираємо спосіб доставки (власною машиною чи машиною компанії) та фасування (насипом чи в мішках). Домовляємось про дату зустрічі. 
+                        Обираємо спосіб доставки (власною машиною чи машиною компанії) та фасування (насипом чи в мішках). Домовляємось про дату відвантаження. 
                     </div>
                 </div>
 
@@ -356,7 +387,7 @@
                         </div>
                         <div class="footer__description-row">
                             <div class="footer__row-title lang" key="footer-contact-phone">Телефон:</div>
-                            <div class="footer__row-description">+38 (068) 250 67 30</div>
+                            <div class="footer__row-description">+38 (068) 250 67 30<br>+38 (068) 067 00 97</div>
                         </div>
                         <div class="footer__description-row">
                             <div class="footer__row-title lang" key="footer-contact-email">Email:</div>
@@ -400,10 +431,8 @@
     <div class="success-modal">
         <div class="content">
             <div class="icon"></div>
-            <div class="text-message">Дякуємо, ваша заявка прийнята. Очікуйте дзвінка найближчим часом</div>
+            <div class="text-message lang" key="modal-success">Дякуємо, ваша заявка прийнята. Очікуйте дзвінка найближчим часом</div>
         </div>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 </body>
 </html>

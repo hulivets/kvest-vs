@@ -21,6 +21,20 @@
 
     .navbar {
 
+        .wrapper {
+
+            .flags-wrapper {
+                display: flex;
+                flex-direction: row;
+                flex-direction: row-reverse;
+                align-items: center;
+    
+                .togle-btn-label {
+                    margin-right: 10px;
+                }
+            }
+        }
+
         &.sticky {
             .navbar__header {
                 height: 40px;
@@ -39,6 +53,7 @@
 
             .navbar__contacts-wrapper {
                 flex-direction: row;
+                width: 90%;
 
                 .navbar__contact-item {
                     width: 25%;
@@ -127,7 +142,7 @@
 
         .section-services__main-products {
             margin: 0 auto;
-            width: 64%;
+            //width: 64%;
 
             .section-services__product-wrapper {
                 flex-direction: row;
@@ -204,4 +219,32 @@
             display: none;
         }
     }
+
+    .success-modal {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        .content {
+            width: 500px;
+        }
+    }
+
+    // TOGGLE
+    .toggle {
+        background-color: grey;
+        width: 44px;
+        height: 26px;
+      }
+      
+      .toggle-active {
+        background-color: blue;
+        width: 44px;
+        height: 26px;
+      }
+      
+      .slider {
+        height: 26px;
+        width: 26px;
+      }
 }

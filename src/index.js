@@ -4,11 +4,13 @@ import EmailJS from 'emailjs-com';
 import FormValidator from './validator';
 import Inputmask from 'inputmask';
 
+import { LANG_LIST } from './lang';
 
 import '../assets/styles/reset.scss';
 import '../assets/styles/styles.scss';
 import '../assets/styles/media-queries.scss';
 import '../assets/styles/viewer.css';
+import '../assets/styles/switch.css';
 
 const galleryIds = {
     // img id : id gallery
@@ -42,9 +44,9 @@ imgIds.forEach((key, index) => {
 });
 
 const credentials = {
-	userId: 'user_9F6kvtX4Y5aPAp1bGZW4A',
-	emailTemplateId: 'template_gkx0yjf',
-	serviceId: 'service_6skoivn'
+	userId: 'user_CNgzNIO8rgOJoQoWYPJTJ',
+	emailTemplateId: 'template_x6nit8u',
+	serviceId: 'service_dill3si'
 };
 
 const menuBtn = document.querySelector('.burger-menu');
@@ -61,9 +63,12 @@ const loaderModal  = document.querySelector('.loader-modal');
 const successModal = document.querySelector('.success-modal');
 const navBar = document.querySelector('.navbar');
 const actionButtons = document.querySelector('.action-buttons');
+const toggleLangBtn = document.getElementById('toggle-lang');
+const textsToTranslate = document.querySelectorAll('.lang');
 
 let isMenuOpen = false;
 let isStickyNavbar = false;
+let currentLanguage = 'ua';
 
 EmailJS.init(credentials.userId);
 Inputmask({"mask": "+38(999) 999-99-99"}).mask(telField)
@@ -98,24 +103,25 @@ function toggleModal(e) {
 	}
 }
 
-function sendEmail(name, phone, commentsName) {
+function sendEmail(name, phone, comments) {
 	const {serviceId, emailTemplateId} = credentials;
-	const templateParams = {name, phone, commentsName}
+	const templateParams = {name, phone, comments}
 	
 	loaderModal.classList.toggle('show');
 
     EmailJS.send(serviceId, emailTemplateId, templateParams)
         .then(function(response) {
-		   console.log('SUCCESS!', response.status, response.text);
-		   loaderModal.classList.remove('show');
-		   successModal.classList.toggle('show');
-		   inputs.forEach(input => {
-			input.value = '';
-			input.blur();
-		});
-		   setTimeout(() => {
-			successModal.classList.remove('show');
-		   }, 3000);
+		    console.log('SUCCESS!', response.status, response.text);
+		    loaderModal.classList.remove('show');
+		    successModal.classList.toggle('show');
+		    inputs.forEach(input => {
+                input.value = '';
+                input.blur();
+		    });
+            commentsField.value = '';
+            setTimeout(() => {
+                successModal.classList.remove('show');
+            }, 3000);
         }, function(error) {
 			successModal.classList.remove('show');
 			loaderModal.classList.toggle('show');
@@ -168,19 +174,15 @@ window.addEventListener('scroll', () => {
 	actionButtons.classList.toggle('show', showActionButtons);
 });
 
+// Toggle language
+toggleLangBtn.addEventListener('change', (e) => {
+    currentLanguage = e.currentTarget.checked ? 'ua' : 'ru';
 
-
-
-document.querySelector('.custom-select-wrapper').addEventListener('click', function() {
-    this.querySelector('.custom-select').classList.toggle('open');
-})
-
-for (const option of document.querySelectorAll(".custom-option")) {
-    option.addEventListener('click', function() {
-        if (!this.classList.contains('selected')) {
-            this.parentNode.querySelector('.custom-option.selected').classList.remove('selected');
-            this.classList.add('selected');
-            this.closest('.custom-select').querySelector('.custom-select__trigger span').textContent = this.textContent;
+    textsToTranslate.forEach(el => {
+        if (el.placeholder){
+            el.placeholder = LANG_LIST[currentLanguage][el.getAttribute('key')]
+        } else {
+            el.innerHTML = LANG_LIST[currentLanguage][el.getAttribute('key')];
         }
-    })
-}
+    });
+});
