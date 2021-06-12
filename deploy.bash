@@ -1,13 +1,13 @@
 #!/usr/bin bash
 
 #User credential
-LOGIN="zi407998"
-HOST="zi407998.ftp.tools"
+LOGIN="ee426414"
+HOST="ee426414.ftp.tools"
 PASS="Kolobok@11"
 PORT=22
-ADDRESS="https://www.eco-help-disinsection.online"
+ADDRESS="https://svet-agropromgroup.online/"
 
-PROJECT_DIRECTORY="eco-help-disinsection.online"
+PROJECT_DIRECTORY="svet-agropromgroup.online"
 BUILD_DIRECTORY="dist"
 
 #Build
