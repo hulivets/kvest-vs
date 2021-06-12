@@ -12,8 +12,11 @@ import '../assets/styles/media-queries.scss';
 import '../assets/styles/viewer.css';
 import '../assets/styles/switch.css';
 
+smoothscroll.polyfill();
+
 const galleryIds = {
     // img id : id gallery
+    'makukha-podsolnukh-2': 'makukha-podsolnukh-gallery-2',
     'makukha-podsolnukh': 'makukha-podsolnukh-gallery',
     'makukha-soya': 'makukha-soya-gallery',
     'shrot-podsolnukh': 'shrot-podsolnukh-gallery',
