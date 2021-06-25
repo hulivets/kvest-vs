@@ -548,6 +548,20 @@ h3 {
                         }
                     }
                 }
+
+                .product-price {
+                    display: none;
+                    margin: 30px auto 0 auto;
+                    text-align: center;
+                    color: $c_white;
+                    cursor: default;
+                    background: none;
+                    border: solid $c_green_lite 1px;
+
+                    &.show {
+                        display: block;
+                    }
+                }
             }
         }
     }

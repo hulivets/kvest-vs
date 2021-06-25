@@ -20,6 +20,7 @@
     "beerslider": "^1.0.3",
     "chart.js": "2.5.0",
     "emailjs-com": "^2.6.4",
+    "fingerprintjs2": "^2.1.4",
     "inputmask": "^5.0.5",
     "jquery": "^3.5.1",
     "lightgallery": "^2.1.2",

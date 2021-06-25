@@ -3,6 +3,7 @@ import Viewer from 'viewerjs';
 import EmailJS from 'emailjs-com';
 import FormValidator from './validator';
 import Inputmask from 'inputmask';
+import './onload';
 
 import { LANG_LIST } from './lang';
 
@@ -13,6 +14,8 @@ import '../assets/styles/viewer.css';
 import '../assets/styles/switch.css';
 
 smoothscroll.polyfill();
+
+window.onloadstart
 
 const galleryIds = {
     // img id : id gallery
@@ -32,7 +35,7 @@ imgIds.forEach((key, index) => {
         zoomable: false,
         title: false,
         movable: false,
-        toolbar : {
+        toolbar: {
             flipHorizontal: false,
             flipVertical: false,
             play: false,
@@ -43,13 +46,13 @@ imgIds.forEach((key, index) => {
     });
     document.getElementById(key).addEventListener('click', () => {
         currentGallery.show(false);
-      })
+    })
 });
 
 const credentials = {
-	userId: 'user_CNgzNIO8rgOJoQoWYPJTJ',
-	emailTemplateId: 'template_x6nit8u',
-	serviceId: 'service_dill3si'
+    userId: 'user_CNgzNIO8rgOJoQoWYPJTJ',
+    emailTemplateId: 'template_x6nit8u',
+    serviceId: 'service_dill3si'
 };
 
 const menuBtn = document.querySelector('.burger-menu');
@@ -62,7 +65,7 @@ const nameField = document.querySelector('#name');
 const telField = document.querySelector('#tel');
 const commentsField = document.querySelector('#comments');
 const inputs = [nameField, telField];
-const loaderModal  = document.querySelector('.loader-modal');
+const loaderModal = document.querySelector('.loader-modal');
 const successModal = document.querySelector('.success-modal');
 const navBar = document.querySelector('.navbar');
 const actionButtons = document.querySelector('.action-buttons');
@@ -74,83 +77,83 @@ let isStickyNavbar = false;
 let currentLanguage = 'ua';
 
 EmailJS.init(credentials.userId);
-Inputmask({"mask": "+38(999) 999-99-99"}).mask(telField)
+Inputmask({ "mask": "+38(999) 999-99-99" }).mask(telField)
 
 var validator = new FormValidator({
-	alerts : true,
-	events : 'input',
-	regex : {
-		phone        : /^[+]?[0-9]{2}?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2}[-\s\.][0-9]{2}$/g
-	},
-	classes : {
-		item  : 'field',
-		alert : 'alert',
-		bad   : 'bad'
-	}
+    alerts: true,
+    events: 'input',
+    regex: {
+        phone: /^[+]?[0-9]{2}?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{2}[-\s\.][0-9]{2}$/g
+    },
+    classes: {
+        item: 'field',
+        alert: 'alert',
+        bad: 'bad'
+    }
 });
 
 function toggleModal(e) {
-	navLinks.classList.toggle('open');
-	menuBtn.classList.toggle('focus');
-	isMenuOpen = !isMenuOpen;
+    navLinks.classList.toggle('open');
+    menuBtn.classList.toggle('focus');
+    isMenuOpen = !isMenuOpen;
 
-	if (e) {
-		const value = e.target.getAttribute('data-link');
-		const posY = document.querySelector(`#${value}`)
-			.getBoundingClientRect().top + window.pageYOffset - 100;
-		window.scrollTo({
-			behavior: 'smooth',
-			top: posY
-		})
-		
-	}
+    if (e) {
+        const value = e.target.getAttribute('data-link');
+        const posY = document.querySelector(`#${value}`)
+            .getBoundingClientRect().top + window.pageYOffset - 100;
+        window.scrollTo({
+            behavior: 'smooth',
+            top: posY
+        })
+
+    }
 }
 
 function sendEmail(name, phone, comments) {
-	const {serviceId, emailTemplateId} = credentials;
-	const templateParams = {name, phone, comments}
-	
-	loaderModal.classList.toggle('show');
+    const { serviceId, emailTemplateId } = credentials;
+    const templateParams = { name, phone, comments }
+
+    loaderModal.classList.toggle('show');
 
     EmailJS.send(serviceId, emailTemplateId, templateParams)
-        .then(function(response) {
-		    console.log('SUCCESS!', response.status, response.text);
-		    loaderModal.classList.remove('show');
-		    successModal.classList.toggle('show');
-		    inputs.forEach(input => {
+        .then(function (response) {
+            console.log('SUCCESS!', response.status, response.text);
+            loaderModal.classList.remove('show');
+            successModal.classList.toggle('show');
+            inputs.forEach(input => {
                 input.value = '';
                 input.blur();
-		    });
+            });
             commentsField.value = '';
             setTimeout(() => {
                 successModal.classList.remove('show');
             }, 3000);
-        }, function(error) {
-			successModal.classList.remove('show');
-			loaderModal.classList.toggle('show');
-		   	console.log('FAILED...', error);
+        }, function (error) {
+            successModal.classList.remove('show');
+            loaderModal.classList.toggle('show');
+            console.log('FAILED...', error);
         });
 }
 
-form.onsubmit = function(e){
-	e.preventDefault();
-		const validatorResult = validator.checkAll(this);
+form.onsubmit = function (e) {
+    e.preventDefault();
+    const validatorResult = validator.checkAll(this);
 
-		validatorResult.fields.forEach((field, index) => {
-			if (!field.error) {
-				[inputs[1], inputs[0]][index].classList.remove('bad');
-			}
-		});
+    validatorResult.fields.forEach((field, index) => {
+        if (!field.error) {
+            [inputs[1], inputs[0]][index].classList.remove('bad');
+        }
+    });
 
-	if (validatorResult.valid) {
-		sendEmail(nameField.value, telField.value, commentsField.value);
-	}
+    if (validatorResult.valid) {
+        sendEmail(nameField.value, telField.value, commentsField.value);
+    }
 };
 
 menuBtn.addEventListener('click', () => toggleModal());
 
 navLinkItems.forEach(link => {
-	link.addEventListener('click', (e) => toggleModal(e));
+    link.addEventListener('click', (e) => toggleModal(e));
 });
 
 logo.addEventListener('click', () => {
@@ -170,11 +173,11 @@ scrollBtn.addEventListener('click', () => {
 });
 
 window.addEventListener('scroll', () => {
-	isStickyNavbar = window.scrollY > 0;
-	navBar.classList.toggle('sticky', isStickyNavbar);
+    isStickyNavbar = window.scrollY > 0;
+    navBar.classList.toggle('sticky', isStickyNavbar);
 
-	let showActionButtons = window.scrollY > document.querySelector('.section-header').clientHeight / 2;
-	actionButtons.classList.toggle('show', showActionButtons);
+    let showActionButtons = window.scrollY > document.querySelector('.section-header').clientHeight / 2;
+    actionButtons.classList.toggle('show', showActionButtons);
 });
 
 // Toggle language
@@ -182,7 +185,7 @@ toggleLangBtn.addEventListener('change', (e) => {
     currentLanguage = e.currentTarget.checked ? 'ua' : 'ru';
 
     textsToTranslate.forEach(el => {
-        if (el.placeholder){
+        if (el.placeholder) {
             el.placeholder = LANG_LIST[currentLanguage][el.getAttribute('key')]
         } else {
             el.innerHTML = LANG_LIST[currentLanguage][el.getAttribute('key')];
