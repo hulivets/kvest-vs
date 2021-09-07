@@ -3,7 +3,6 @@ import Viewer from 'viewerjs';
 import EmailJS from 'emailjs-com';
 import FormValidator from './validator';
 import Inputmask from 'inputmask';
-import './onload';
 
 import { LANG_LIST } from './lang';
 
@@ -15,23 +14,21 @@ import '../assets/styles/switch.css';
 
 smoothscroll.polyfill();
 
-window.onloadstart
-
 const galleryIds = {
     // img id : id gallery
     'makukha-podsolnukh-2': 'makukha-podsolnukh-gallery-2',
     'makukha-podsolnukh': 'makukha-podsolnukh-gallery',
     'makukha-soya': 'makukha-soya-gallery',
-    'shrot-podsolnukh': 'shrot-podsolnukh-gallery',
-    'shrot-soya': 'shrot-soya-gallery',
-    'obolonka-soya': 'obolonka-soya-gallery'
+    // 'shrot-podsolnukh': 'shrot-podsolnukh-gallery',
+    'zhmykh-raps': 'zhmykh-raps-gallery',
+    // 'obolonka-soya': 'obolonka-soya-gallery'
 }
 
 const imgIds = Object.keys(galleryIds);
 const galleries = Object.values(galleryIds);
 
-imgIds.forEach((key, index) => {
-    const currentGallery = new Viewer(document.getElementById(galleries[index]), {
+for (let key in galleryIds) {
+    const currentGallery = new Viewer(document.getElementById(galleryIds[key]), {
         zoomable: false,
         title: false,
         movable: false,
@@ -44,10 +41,11 @@ imgIds.forEach((key, index) => {
             next: true,
         }
     });
+
     document.getElementById(key).addEventListener('click', () => {
         currentGallery.show(false);
     })
-});
+}
 
 const credentials = {
     userId: 'user_CNgzNIO8rgOJoQoWYPJTJ',

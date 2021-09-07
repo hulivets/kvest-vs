@@ -28,14 +28,14 @@
 
             .section-services__product-wrapper {
                 flex-direction: row;
-                justify-content: space-between;
+                justify-content: space-around;
 
                 .section-services__product {
                     display: flex;
                     flex-direction: column;
                     margin-top: 30px;
                     margin-bottom: 80px;
-                    width: 31%;
+                    width: 45%;
                     //height: 550px;
                     justify-content: space-between;
 
@@ -50,7 +50,7 @@
             .section-services__product-wrapper {
                 display: flex;
                 flex-direction: row;
-                justify-content: space-between;
+                justify-content: space-around;
 
                 .section-services__product {
                     width: 31%;
@@ -59,7 +59,7 @@
                     flex-direction: column;
                     margin-top: 30px;
                     margin-bottom: 80px;
-                    width: 31%;
+                    width: 45%;
                     //height: 550px;
                     justify-content: space-between;
 
