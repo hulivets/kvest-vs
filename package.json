@@ -44,7 +44,7 @@
     "file-loader": "6.0.0",
     "html-webpack-plugin": "4.3.0",
     "mini-css-extract-plugin": "0.10.0",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.3",
     "postcss": "^8.1.10",
     "postcss-comment": "^2.0.0",
     "postcss-loader": "^4.1.0",
