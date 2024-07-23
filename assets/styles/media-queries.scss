@@ -1,7 +1,7 @@
 @import './media';
 @import './colors.scss';
 
-@media screen and(min-width: $M_TABLET_FROM) {
+@media screen and (min-width: $M_TABLET_FROM) {
     .section-advantages {
         .section-advantages__advantages-wrapper {
             padding: 120px 0;
@@ -84,7 +84,7 @@
 }
 
 
-@media screen and(min-width: $M_DESKTOP_FROM) {
+@media screen and (min-width: $M_DESKTOP_FROM) {
     .navbar {
 
         .wrapper {
@@ -209,7 +209,7 @@
     }
 }
 
-@media screen and(min-width: 1200px) {
+@media screen and (min-width: 1200px) {
     h1 {
         font-size: 48px;
     }

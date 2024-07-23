@@ -162,9 +162,10 @@ h3 {
                 width: 100%;
             }
 
-            display: flex;
+           & { display: flex;
             line-height: 30px;
             height: 40px;
+            }
         }
     }
 

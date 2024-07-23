@@ -3,7 +3,7 @@ import Viewer from 'viewerjs';
 import EmailJS from 'emailjs-com';
 import FormValidator from './validator';
 import Inputmask from 'inputmask';
-import './onload';
+// import './onload';
 
 import { LANG_LIST } from './lang';
 
@@ -69,7 +69,7 @@ const loaderModal = document.querySelector('.loader-modal');
 const successModal = document.querySelector('.success-modal');
 const navBar = document.querySelector('.navbar');
 const actionButtons = document.querySelector('.action-buttons');
-const toggleLangBtn = document.getElementById('toggle-lang');
+// const toggleLangBtn = document.getElementById('toggle-lang');
 const textsToTranslate = document.querySelectorAll('.lang');
 
 let isMenuOpen = false;
@@ -181,14 +181,14 @@ window.addEventListener('scroll', () => {
 });
 
 // Toggle language
-toggleLangBtn.addEventListener('change', (e) => {
-    currentLanguage = e.currentTarget.checked ? 'ua' : 'ru';
+// toggleLangBtn.addEventListener('change', (e) => {
+//     currentLanguage = e.currentTarget.checked ? 'ua' : 'ru';
 
-    textsToTranslate.forEach(el => {
-        if (el.placeholder) {
-            el.placeholder = LANG_LIST[currentLanguage][el.getAttribute('key')]
-        } else {
-            el.innerHTML = LANG_LIST[currentLanguage][el.getAttribute('key')];
-        }
-    });
-});
+//     textsToTranslate.forEach(el => {
+//         if (el.placeholder) {
+//             el.placeholder = LANG_LIST[currentLanguage][el.getAttribute('key')]
+//         } else {
+//             el.innerHTML = LANG_LIST[currentLanguage][el.getAttribute('key')];
+//         }
+//     });
+// });
